@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lora:ital,wght@0,400..700;1,400..700&family=IBM+Plex+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    --background: 40 30% 98%;
+    --foreground: 210 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 15%;
+    --primary: 35 60% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 10% 92%;
+    --secondary-foreground: 210 20% 20%;
+    --muted: 35 10% 94%;
+    --muted-foreground: 210 10% 45%;
+    --accent: 35 90% 60%;
+    --accent-foreground: 210 20% 15%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 35 10% 88%;
+    --input: 35 10% 88%;
+    --ring: 35 60% 50%;
+
+    --radius: 0.75rem;
+
+    --font-sans: "DM Sans", system-ui, sans-serif;
+    --font-serif: "Lora", "Georgia", serif;
+  }
+
+  .dark {
+    --background: 210 20% 10%;
+    --foreground: 40 30% 95%;
+    --card: 210 20% 12%;
+    --card-foreground: 40 30% 95%;
+    --popover: 210 20% 12%;
+    --popover-foreground: 40 30% 95%;
+    --primary: 35 60% 50%;
+    --primary-foreground: 210 20% 10%;
+    --secondary: 210 15% 18%;
+    --secondary-foreground: 40 30% 95%;
+    --muted: 210 15% 15%;
+    --muted-foreground: 210 10% 65%;
+    --accent: 35 90% 60%;
+    --accent-foreground: 210 20% 10%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 40 30% 95%;
+    --border: 210 15% 20%;
+    --input: 210 15% 20%;
+    --ring: 35 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold tracking-tight;
+    text-wrap: balance;
+  }
+}
+
+/* Attractive text utilities */
+.text-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tracking-elegant {
+  letter-spacing: -0.02em;
+}
+.tracking-expansive {
+  letter-spacing: 0.08em;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.glass {
+  @apply backdrop-blur-md bg-white/30 border border-white/20 shadow-lg;
+}
+
+.dark .glass {
+  @apply bg-black/30 border-white/10;
+}
